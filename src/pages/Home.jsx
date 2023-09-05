@@ -8,7 +8,7 @@ import {
 } from "../config/motion";
 import state from "../store";
 // import React from "react";
-import { CustomButton } from "../components";
+import { CustomButton } from "../components/index";
 
 const Home = () => {
   const snap = useSnapshot(state);
@@ -40,7 +40,6 @@ const Home = () => {
                 customization tool. <strong>Unlease your imagination</strong>
                 {""} and define your own style.
               </p>
-
               <CustomButton
                 type="filled"
                 title="Customize It"
