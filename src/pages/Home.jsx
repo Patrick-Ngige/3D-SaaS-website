@@ -7,7 +7,7 @@ import {
   slideAnimation,
 } from "../config/motion";
 import state from "../store";
-import React from "react";
+// import React from "react";
 import { CustomButton } from "../components";
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className="head-text">
-                LET'S <br className="xl:block hidden" />
+                LET <br className="xl:block hidden" />
                 DO IT.
               </h1>
             </motion.div>
