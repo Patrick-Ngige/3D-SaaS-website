@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import config  from '../config/config';
@@ -11,10 +11,25 @@ import { AIPicker, ColorPicker, FilePicker, Tab, CustomButton } from '../compone
 
 
 const Customizer = () => {
+  const snap = useSnapshot(state);
+
   return (
-    <div>
-      Customizer
-    </div>
+    <AnimatePresence>
+      {!snap.intro && (
+        <>
+          <motion.div 
+          key="custom"
+          className='absolute top-0 left-0 z-10'
+          {...slideAnimation('left')}>
+            <div className='flex items-center min-h-screen'>
+              <div className='editortabs-container tabs'>
+
+              </div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   )
 }
 

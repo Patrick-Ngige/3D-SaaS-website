@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilePiicker = () => {
+const FilePicker = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const FilePiicker = () => {
   )
 }
 
-export default FilePiicker
+export default FilePicker
