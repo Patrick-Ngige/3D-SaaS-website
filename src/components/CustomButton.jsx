@@ -9,12 +9,12 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
 
 
   const generateStyle = (type) => {
-    if (type === "filled") {
+    if (type === 'filled') {
       return {
         backgroundColor: snap.color,
         color: getContrastingColor(snap.color),
       };
-    } else if (type === "outline") {
+    } else if (type === 'outline') {
       return {
         borderWidth: '1px',
         borderColor: snap.color,
