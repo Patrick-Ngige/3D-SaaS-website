@@ -16,22 +16,22 @@ const FilePicker = ({file, setFile, readFile}) => {
           Upload File
         </label>
 
-        <p className="mt-4 text-green-200 text-xs truncate">
-        {file === "" ? "No file selected" : file.name}
+        <p className="mt-4 text-gray-500 text-xs truncate">
+        {file ? file.name : "No file selected"}
       </p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-3">
         <CustomButton
           type="outline"
-          title="logo"
-          handleClick={() => readFile("logo")}
+          title="Logo"
+          handleClick={() => readFile('logo')}
           customStyles="text-xs"
         />
         <CustomButton
           type="filled"
-          title="full"
-          handleClick={() => readFile("full")}
+          title="Full"
+          handleClick={() => readFile('full')}
           customStyles="text-xs"
         />
       </div>
