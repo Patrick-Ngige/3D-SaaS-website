@@ -8,6 +8,7 @@ import {downloadCanvasToImage, reader} from '../config/helpers';
 import {EditorTabs, FilterTabs, DecalTypes} from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, FilePicker, Tab, CustomButton } from '../components';
+import { render } from 'react-dom';
 
 
 const Customizer = () => {
@@ -34,6 +35,14 @@ const Customizer = () => {
       case "aipicker":
         return <AIPicker />
     }
+  }
+
+  const readFile = (type) => {
+    render(file)
+      .then((result) => {
+        handleDecals(type, result);
+        setActiveEditorTab('');
+      })
   }
 
   return (
