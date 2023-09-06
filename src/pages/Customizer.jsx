@@ -56,7 +56,7 @@ const Customizer = () => {
         break;
       default:
         state.isLogoTexture = true;
-        state.isFullTexture = true;
+        state.isFullTexture = false;
         break;
     }
   }
