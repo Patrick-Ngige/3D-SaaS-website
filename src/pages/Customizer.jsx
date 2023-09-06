@@ -44,7 +44,21 @@ const Customizer = () => {
     if(!activeFilterTab[decalType.FilterTab]){
       handleActiveFilterTab(decalType.FilterTab)
     }
-  
+  }
+
+  const handleActiveFilterTab = (tabName) => {
+    switch (tabName) {
+      case "logoShirt":
+        state.isLogoTexture = !activeFilterTab[tabName]
+        break;
+      case "stylishShirt":
+        state.isFullTexture = !activeFilterTab[tabName]
+        break;
+      default:
+        state.isLogoTexture = true;
+        state.isFullTexture = true;
+        break;
+    }
   }
 
   const readFile = (type) => {
