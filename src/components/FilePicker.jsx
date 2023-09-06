@@ -18,6 +18,17 @@ const FilePicker = (file, setFile, readFile) => {
           {file === '' ? "No file selected" : file.name}
         </p>
       </div>
+
+    <div className="mt-4 flex flex-wrap gap-36">
+      <CustomButton 
+        type="outline"
+        title="logo"
+        handleClick={() => readFile('logo')}
+        customStyles="text-xs"
+      />
+
+    </div>
+
     </div>
   )
 }
