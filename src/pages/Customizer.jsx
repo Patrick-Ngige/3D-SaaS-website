@@ -42,8 +42,8 @@ const Customizer = () => {
     const decalType = DecalTypes[type];
     state[decalType.stateProperty] = result;
 
-    if(!activeFilterTab[decalType.FilterTab]){
-      handleActiveFilterTab(decalType.FilterTab)
+    if(!activeFilterTab[decalType.filterTab]){
+      handleActiveFilterTab(decalType.filterTab)
     }
   }
 

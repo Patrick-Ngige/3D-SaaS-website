@@ -1,5 +1,5 @@
 // import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import state from "../store";
 import { useSnapshot } from "valtio";
 import { getContrastingColor } from "../config/helpers";
@@ -36,10 +36,4 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
   
 };
 
-CustomButton.propTypes = {
-  type: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  customStyles: PropTypes.string,
-  handleClick: PropTypes.func.isRequired,
-}
 export default CustomButton;
