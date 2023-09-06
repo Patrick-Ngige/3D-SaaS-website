@@ -1,9 +1,6 @@
 import CustomButton from "./CustomButton";
 
-
-
-const FilePicker = (file, setFile, readFile) => {
-  console.log("File value:", file.name);
+const FilePicker = ({file, setFile, readFile}) => {
   return (
     <div className="filepicker-container">
       <div className="flex-1 flex flex-col">
@@ -13,14 +10,13 @@ const FilePicker = (file, setFile, readFile) => {
           accept="image/*"
           onChange={(e) => {
           setFile(e.target.files[0])
-          readFile("logo")
           }}
         />
         <label htmlFor="file-upload" className="filepicker-label">
           Upload File
         </label>
 
-        <p className="mt-4 text-green-200 text-xs">
+        <p className="mt-4 text-green-200 text-xs truncate">
         {file === "" ? "No file selected" : file.name}
       </p>
       </div>
