@@ -37,6 +37,16 @@ const Customizer = () => {
     }
   }
 
+  const handleDecals = (type, result) => {
+    const decalType = DecalTypes[type];
+    state[decalType.stateProperty] = result;
+
+    if(!activeFilterTab[decalType.FilterTab]){
+      handleActiveFilterTab(decalType.FilterTab)
+    }
+  
+  }
+
   const readFile = (type) => {
     render(file)
       .then((result) => {
