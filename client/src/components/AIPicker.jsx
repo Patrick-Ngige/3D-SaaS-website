@@ -1,6 +1,6 @@
-import React from 'react'
+import CustomButtom from './CustomButton';
 
-const AIPicker = () => {
+const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit}) => {
   return (
     <div>
       AIPicker
