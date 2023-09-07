@@ -58,18 +58,21 @@ const Customizer = () => {
       default:
         state.isLogoTexture = true;
         state.isFullTexture = false;
-        break;
     }
+
+    //after setting the state, acvtiveFilterTab is updated
+    setActiveFilterTab((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      }
+    })
   }
 
-  const readFile = async (type) => {
-    try {
-      const result = await render(file);
+  const readFile = (type) => {
+      const result = render(file);
       handleDecals(type, result);
       setActiveEditorTab('');
-     } catch (error) {
-      console.error(`An error occurred while reading and rendering the file: ${error}`);
-     }
   }
   
 
@@ -112,7 +115,7 @@ const Customizer = () => {
                   tab={tab}
                   isFilterTab
                   isActiveTab={activeFilterTab[tab.name]}
-                  handleClick={() => {}}
+                  handleClick={() => handleActiveFilterTab(tab.name)}
                   />
             ))}
           </motion.div>
