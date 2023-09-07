@@ -1,38 +1,44 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import { castToError } from "openai/core";
 import OpenAI from 'openai';
 
 dotenv.config();
 
-const router = express.Router();
+const app = express();
 
-const config = new OpenAI(process.env.OPENAI_API_KEY);
+const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-// const openai = new OpenAiApi(config);
+const dalleRoutes = express.Router();
 
-router.route("/").get((req, res) => {
+app.use(express.json());
+
+app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello from Kim" });
 });
 
-router.route('/').post(async (req, res) => {
-    try {
-        const {prompt} = req.body;
-        const response = await openai.createImage({
-            prompt,
-            n: 1,
-            size: '1024x1024',
-            response_format: 'b64_json'
-    })
+app.post('/api/v1/dalle', async (req, res) => {
+  try {
+    const {prompt, maxTokens} = req.body;
+    const response = await openai.complete({
+      engine: 'davinci-codex',
+      prompt,
+      maxTokens,
+    });
 
-    const image = response.data.data[0].b64_json;
+    res.setHeader('Content-Type', 'application/json');
 
-    res.status(200).json({photo: image});
+    res.status(200).json({completion : response.data.choices[0].text});
+  } catch (error) {
+    console.error(error);
 
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({message: "Something went wrong"})
-    }
-})
+    res.setHeader('Content-Type', 'application/json');
 
-export default router;
+    res.status(500).json({message: "Something went wrong"});
+  }
+});
+
+// app.listen(process.env.PORT || 3000, () => {
+//   console.log(`Server is running on port ${process.env.PORT || 3000}`);
+// });
+
+export default dalleRoutes;

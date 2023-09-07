@@ -48,7 +48,7 @@ const Customizer = () => {
 
     try {
       setGeneratingImg(true);
-
+      
       const response = await fetch('http://localhost:8080/api/v1/dalle', {
         method: 'POST',
         headers: {
@@ -58,6 +58,10 @@ const Customizer = () => {
           prompt,
         })
       })
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status: ${response.status}`);
+      }
 
       const data = await response.json()
 
