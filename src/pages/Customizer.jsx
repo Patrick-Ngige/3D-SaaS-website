@@ -62,13 +62,16 @@ const Customizer = () => {
     }
   }
 
-  const readFile = (type) => {
-    render(file)
-      .then((result) => {
-        handleDecals(type, result);
-        setActiveEditorTab('');
-      })
+  const readFile = async (type) => {
+    try {
+      const result = await render(file);
+      handleDecals(type, result);
+      setActiveEditorTab('');
+     } catch (error) {
+      console.error(`An error occurred while reading and rendering the file: ${error}`);
+     }
   }
+  
 
   return (
     <AnimatePresence>
@@ -108,7 +111,7 @@ const Customizer = () => {
                   key={tab.name}
                   tab={tab}
                   isFilterTab
-                  isActiveTab=""
+                  isActiveTab={activeFilterTab[tab.name]}
                   handleClick={() => {}}
                   />
             ))}
