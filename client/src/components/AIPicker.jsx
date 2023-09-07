@@ -10,7 +10,18 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit}) => {
       onChange={(e) => setPrompt(e.target.value)}
       className='aipicker-textarea'
       />
-      
+      <div className='flex flex-wrap gap-3'>
+        {generatingImg ? (
+          <CustomButtom 
+            type="outline"
+            title="Asking AI..."
+            customStyles="text-xs"
+          />
+        ): (
+          
+        )}
+
+      </div>
     </div>
   )
 }
